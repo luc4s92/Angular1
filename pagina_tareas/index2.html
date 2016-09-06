@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="ToDoList">
+<head>
+    <meta charset="utf-8">
+    <title>pagina prueba</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="styles.css" >
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="angular-local-storage.min.js"></script>
+    <script src="controller.js"></script>
+</head>
+<body ng-controller="ToDoController">
+  <div class="container col-md-4 col-md-offset-4">
+  <form ng-submit="addActv()">
+    <h3> Agrega una nueva Tarea </h3>
+
+    <div class="has-feedback">
+    <input type="text" class="form-control"placeholder="Tarea a Realizar"ng-model="newActv.descripcion"></input>
+    <input type="datetime-local" ng-model="newActv.fecha">
+    <span class="glyphicon glyphicon-tasks form-control-feedback"></span>
+      <input type="submit" value="Guardar actividad">
+      <button ng-click="clean()">Limpiar</button>
+  </div>
+
+  </form>
+
+  <div class="todolist bg-info">
+    <h4>Tareas registradas</h4>
+      <div class="item" ng-repeat="actividad in todo" >
+        {{actividad.descripcion}} -
+        {{actividad.fecha | date:'short'}}
+      </div>
+  </div>
+
+</div>
+</body>
+</html>

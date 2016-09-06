@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="CustomDirective">
+<head>
+    <meta charset="utf-8">
+    <title>Custom directive</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" >
+    <link rel="stylesheet" href="autocomplete-jquery-ui.structure.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="autocomplete-jquery-ui"></script>
+</head>
+<body ng-controller="AppCrtl">
+    <input type="text" my-autocomplete="repos" placeholder="Buscar reporsitorio">
+    <ul class="no-list" >
+        <li ng-repeat="repo in repos">
+
+            <div class="circular" back-img="{{repo.owner.avatar_url}}"> </div> <!-- esto deberia ir en stylos -->
+            <h1 class="inline-block">{{repo.name}}</h1>
+        </li>
+    </ul>
+</body>
+</html>

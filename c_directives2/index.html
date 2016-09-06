@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html  ng-app="App">
+<head>
+    <meta charset="utf-8">
+    <title>Custom directive</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css" >
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="AppCtrl">
+    <div id="container" class="container" >
+        <input type="text" my-autocomplete="repos" placeholder="Buscar repositorio">
+        <ul class="no-list" ng-cloak>
+            <li ng-repeat="repo in posts" ng-hide="main_repo && main_repo != repo.name">
+                <div class="circular" back-img="{{repo.owner.avatar_url}}"></div>
+                <h1 class="inline-block">{{ repo.full_name }}</h1>
+            </li>
+        </ul>
+        <a id="limpiar" ng-show="main_repo" ng-click="clean()">Limpiar</a>
+    </div>
+</body>
+
+</html>
